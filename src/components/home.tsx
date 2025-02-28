@@ -7,7 +7,7 @@ import Footer from "./layout/Footer";
 
 // Section components
 import HeroSection from "./sections/HeroSection";
-import ThreeDShowcase from "./sections/ThreeDShowcase";
+import ThreeDConfiguratorSection from "./sections/ThreeDConfigurator";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
 import AboutSection from "./sections/AboutSection";
@@ -95,9 +95,9 @@ const Home = () => {
           />
         </section>
 
-        {/* 3D Showcase Section */}
+        {/* 3D Configurator Section */}
         <section id="showcase">
-          <ThreeDShowcase />
+          <ThreeDConfiguratorSection />
         </section>
 
         {/* Projects Section */}
