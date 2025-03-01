@@ -28,75 +28,76 @@ const ProjectGrid = ({
   projects = [
     {
       id: "1",
-      title: "E-Commerce Platform",
+      title: "Promptopia",
       description:
-        "A modern e-commerce platform built with React, Redux, and Shopify Storefront API. Features include product filtering, cart management, and checkout.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      technologies: ["React", "Redux", "Shopify API", "Tailwind CSS"],
-      liveUrl: "https://example.com/ecommerce",
-      githubUrl: "https://github.com/example/ecommerce",
+        "Full-stack Next.js application for sharing AI prompts with the community. Features user authentication, CRUD operations, and search functionality.",
+      imageUrl: "https://i.ibb.co/Qj1bLWM/promptopia-screenshot.png",
+      technologies: ["Next.js", "MongoDB", "NextAuth", "Tailwind CSS"],
+      liveUrl:
+        "https://promtopia-main-l8hyo03va-hamzaasif043s-projects.vercel.app/",
+      githubUrl: "https://github.com/HaMZAAsif043/promtopia-main",
       category: "Web Development",
     },
     {
       id: "2",
-      title: "3D Product Configurator",
+      title: "Jarvis AI Assistant",
       description:
-        "Interactive 3D product configurator using Three.js and React Three Fiber. Allows users to customize products in real-time with different colors and materials.",
+        "Python-based AI agent for personal tasks, featuring voice recognition, natural language processing, and task automation capabilities.",
       imageUrl:
-        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      technologies: ["Three.js", "React Three Fiber", "WebGL", "React"],
-      liveUrl: "https://example.com/configurator",
-      githubUrl: "https://github.com/example/configurator",
-      category: "3D Development",
-    },
-    {
-      id: "3",
-      title: "AI Content Generator",
-      description:
-        "A content generation tool powered by AI that creates blog posts, social media content, and marketing copy based on user prompts.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1677442135968-6db3b0025e95?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      technologies: ["Python", "TensorFlow", "React", "FastAPI"],
-      liveUrl: "https://example.com/ai-generator",
-      githubUrl: "https://github.com/example/ai-generator",
+        "https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      technologies: ["Python", "Speech Recognition", "NLP", "APIs"],
+      liveUrl: "#",
+      githubUrl:
+        "https://github.com/HaMZAAsif043/jarvis_AI_Assistance_usingPython",
       category: "AI/ML",
     },
     {
-      id: "4",
-      title: "Portfolio CMS",
+      id: "3",
+      title: "Recipe Finder",
       description:
-        "A headless CMS specifically designed for developer portfolios, with custom fields for projects, skills, and experience.",
+        "React application for finding recipes using external API integration. Features search functionality, recipe details, and favorites saving.",
       imageUrl:
-        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      technologies: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript"],
-      liveUrl: "https://example.com/portfolio-cms",
-      githubUrl: "https://github.com/example/portfolio-cms",
+        "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      technologies: ["React", "REST API", "CSS", "JavaScript"],
+      liveUrl: "https://hamzaasif043.github.io/Recipe_Finder/",
+      githubUrl: "https://github.com/HaMZAAsif043/Recipe_Finder",
+      category: "Web Development",
+    },
+    {
+      id: "4",
+      title: "Contact List App",
+      description:
+        "Full-stack CRUD application for managing contacts, built with React frontend and Python backend. Features contact creation, editing, and deletion.",
+      imageUrl:
+        "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      technologies: ["React", "Python", "REST API", "CRUD"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/HaMZAAsif043/Contact-List-CRUD-APP-",
       category: "Web Development",
     },
     {
       id: "5",
-      title: "Virtual Reality Gallery",
+      title: "3D Car Configurator",
       description:
-        "A VR art gallery experience built with A-Frame and WebXR, allowing users to explore 3D artwork in virtual reality.",
+        "Interactive Toyota Corolla 3D configurator with color customization, animated doors and hood, and 360° viewing angle.",
       imageUrl:
-        "https://images.unsplash.com/photo-1626379953822-baec19c3accd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      technologies: ["A-Frame", "WebXR", "Three.js", "JavaScript"],
-      liveUrl: "https://example.com/vr-gallery",
-      githubUrl: "https://github.com/example/vr-gallery",
+        "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      technologies: ["React", "Canvas API", "JavaScript", "Tailwind CSS"],
+      liveUrl: "https://car-configurator-demo.vercel.app",
+      githubUrl: "https://github.com/HaMZAAsif043/car-configurator",
       category: "3D Development",
     },
     {
       id: "6",
-      title: "Real-time Dashboard",
+      title: "AI Chatbot Integration",
       description:
-        "A real-time analytics dashboard for monitoring system performance, user activity, and business metrics.",
+        "Intelligent conversational interface with natural language processing capabilities for customer support and information retrieval.",
       imageUrl:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      technologies: ["React", "Socket.io", "D3.js", "Node.js"],
-      liveUrl: "https://example.com/dashboard",
-      githubUrl: "https://github.com/example/dashboard",
-      category: "Web Development",
+        "https://images.unsplash.com/photo-1677442135968-6db3b0025e95?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      technologies: ["Python", "TensorFlow", "React", "NLP"],
+      liveUrl: "https://ai-chatbot-demo.vercel.app",
+      githubUrl: "https://github.com/HaMZAAsif043/ai-chatbot",
+      category: "AI/ML",
     },
   ],
   onProjectClick = () => {},

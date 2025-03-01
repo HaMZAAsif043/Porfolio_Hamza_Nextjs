@@ -54,10 +54,10 @@ const Home = () => {
 
   // Social links shared across components
   const socialLinks = {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
+    github: "https://github.com/HaMZAAsif043",
+    linkedin: "https://www.linkedin.com/in/hamza-asif043/",
     twitter: "https://twitter.com/yourusername",
-    email: "hello@example.com",
+    email: "hamza.asif0087@gmail.com",
     portfolio: "https://yourportfolio.com",
   };
 
@@ -83,7 +83,7 @@ const Home = () => {
         {/* Hero Section */}
         <section id="home">
           <HeroSection
-            name="John Doe"
+            name="Hamza Asif"
             title="React & 3D Developer"
             description="I build interactive web experiences with React, Three.js, and modern web technologies. Specializing in 3D rendering, AI integration, and full-stack development."
             socialLinks={{
@@ -125,12 +125,11 @@ const Home = () => {
         <section id="contact">
           <ContactSection
             email={socialLinks.email}
-            phone="+1 (555) 123-4567"
-            location="San Francisco, CA"
+            phone="0321-9519624"
+            location="Lahore, Pakistan"
             socialLinks={[
               { name: "LinkedIn", url: socialLinks.linkedin },
               { name: "GitHub", url: socialLinks.github },
-              { name: "Twitter", url: socialLinks.twitter },
             ]}
           />
         </section>

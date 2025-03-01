@@ -29,152 +29,83 @@ const defaultSkills: Record<string, Skill[]> = {
     {
       name: "React",
       level: 75,
-      description: "Component architecture, hooks, context API",
-      years: 0.7,
+      description:
+        "Component-based architecture, hooks, basic state management",
+      years: 0.8, // ~8 months
     },
     {
       name: "Next.js",
-      level: 70,
-      description: "Server-side rendering, API routes, static site generation",
-      years: 0.7,
+      level: 65,
+      description: "Basic SSR, API routes, and static site generation",
+      years: 0.8, // ~8 months
     },
     {
       name: "TypeScript",
-      level: 65,
-      description: "Type systems, interfaces, generics",
-      years: 0.5,
+      level: 55,
+      description: "Basic types, interfaces, and props handling",
+      years: 0.2, // ~2 months
     },
     {
       name: "Tailwind CSS",
-      level: 80,
-      description: "Utility-first CSS, responsive design, custom themes",
-      years: 0.7,
-    },
-    {
-      name: "HTML/CSS",
       level: 85,
-      description: "Semantic markup, responsive layouts, animations",
-      years: 1,
+      description:
+        "Utility-first CSS, responsive design, and styling components",
+      years: 0.8, // ~8 months
     },
     {
-      name: "JavaScript",
-      level: 80,
-      description: "ES6+, DOM manipulation, async programming",
-      years: 1,
+      name: "Redux",
+      level: 60,
+      description:
+        "Worked on 2 projects, basic understanding of reducers and actions",
+      years: 0.6, // ~6 months
     },
   ],
   backend: [
     {
       name: "Node.js",
-      level: 60,
-      description: "Express, RESTful APIs, basic middleware",
-      years: 0.5,
-    },
-    {
-      name: "Python",
-      level: 75,
-      description: "Data processing, automation, scripting",
-      years: 1,
-    },
-    {
-      name: "MongoDB",
-      level: 60,
-      description: "Document databases, CRUD operations",
-      years: 0.5,
-    },
-    {
-      name: "Firebase",
-      level: 65,
-      description: "Authentication, Firestore, real-time database",
-      years: 0.5,
-    },
-    {
-      name: "RESTful APIs",
       level: 70,
-      description: "API design, integration, consumption",
-      years: 0.7,
+      description: "Express.js, basic RESTful API development",
+      years: 0.8, // ~8 months
     },
     {
-      name: "Git/GitHub",
-      level: 75,
-      description: "Version control, collaboration, CI/CD",
-      years: 1,
+      name: "Django",
+      level: 70,
+      description: "auth, basic RESTful API development",
+      years: 0.8, // ~8 months
     },
   ],
   ai: [
     {
       name: "Python",
-      level: 80,
-      description: "Data processing, automation, scripting",
-      years: 1,
-    },
-    {
-      name: "TensorFlow",
-      level: 65,
-      description: "Neural networks, basic model training",
-      years: 0.5,
-    },
-    {
-      name: "NLP",
-      level: 60,
-      description: "Text processing, chatbot development",
-      years: 0.5,
-    },
-    {
-      name: "Computer Vision",
-      level: 60,
-      description: "Image recognition, basic object detection",
-      years: 0.5,
-    },
-    {
-      name: "Machine Learning",
       level: 70,
-      description: "Classification, regression, clustering",
-      years: 0.7,
+      description: "Data preprocessing, automation, scripting",
+      years: 0.6, // ~6 months
     },
     {
-      name: "Data Science",
-      level: 65,
-      description: "Data analysis, visualization, pandas",
-      years: 0.7,
+      name: "Data Preprocessing",
+      level: 75,
+      description: "Feature engineering, data cleaning, and transformation",
+      years: 0.6, // ~6 months
     },
   ],
   "3d": [
     {
       name: "Three.js",
-      level: 80,
-      description: "3D scene composition, lighting, materials",
-      years: 1,
+      level: 65,
+      description: "Basic 3D scene composition and rendering",
+      years: 0.7,
     },
     {
       name: "React Three Fiber",
-      level: 75,
+      level: 60,
       description: "React integration with Three.js",
-      years: 0.7,
+      years: 0.6,
     },
     {
       name: "WebGL",
-      level: 65,
-      description: "Basic shader programming, rendering",
-      years: 0.7,
-    },
-    {
-      name: "3D Model Configuration",
-      level: 85,
-      description: "Interactive 3D product customization",
-      years: 0.8,
-    },
-    {
-      name: "Animation",
-      level: 70,
-      description: "Keyframe animation, model animation",
-      years: 0.7,
-    },
-    {
-      name: "3D Asset Management",
-      level: 75,
-      description: "Model optimization, texture management",
-      years: 0.8,
+      level: 55,
+      description: "Fundamental shader programming concepts",
+      years: 0.5,
     },
   ],
 };
@@ -189,7 +120,7 @@ const categoryIcons = {
 const getLevelLabel = (level: number): string => {
   if (level >= 90) return "Expert";
   if (level >= 75) return "Advanced";
-  if (level >= 60) return "Intermediate";
+  if (level >= 55) return "Intermediate";
   return "Beginner";
 };
 

@@ -93,7 +93,7 @@ const Navbar = ({
             className="flex items-center"
           >
             <a href="#" className="text-xl font-bold tracking-tight">
-              <span className="text-primary">Dev</span>Portfolio
+              <span className="text-primary">Dev</span>Craft
             </a>
           </motion.div>
 

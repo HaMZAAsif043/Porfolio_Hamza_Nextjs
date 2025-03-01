@@ -23,8 +23,8 @@ const HeroSection = ({
   description = "I build interactive web experiences with React, Three.js, and modern web technologies. Specializing in 3D model configuration, AI integration, and full-stack development.",
   socialLinks = {
     github: "https://github.com/HaMZAAsif043",
-    linkedin: "https://linkedin.com/in/johndoe",
-    email: "mailto:john@example.com",
+    linkedin: "https://linkedin.com/in/hamzaasif043",
+    email: "mailto:hamzaasif043@gmail.com",
   },
   resumeUrl = "/resume.pdf",
 }: HeroSectionProps) => {

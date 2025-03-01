@@ -33,78 +33,153 @@ interface ProjectsSectionProps {
 const defaultProjects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
+    title: "Promptopia",
     description:
-      "A modern e-commerce platform built with React, Redux, and Shopify Storefront API. Features include product filtering, cart management, and checkout.",
+      "Full-stack Next.js application for sharing AI prompts with the community. Features user authentication, CRUD operations, and search functionality.",
     longDescription:
-      "This comprehensive e-commerce solution leverages React for the frontend, Redux for state management, and integrates with the Shopify Storefront API for product data and checkout functionality. The application features responsive design, advanced filtering options, cart management, user authentication, and a streamlined checkout process.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "Promptopia is a full-stack Next.js application that allows users to share, discover, and use AI prompts. The platform features Google authentication, a responsive design, and comprehensive CRUD functionality for managing prompts. Users can search for prompts by content, tag, or username, and copy prompts with a single click.",
+    imageUrl: "https://i.ibb.co/Qj1bLWM/promptopia-screenshot.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1572584642822-6f8de0243c93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://i.ibb.co/Qj1bLWM/promptopia-screenshot.png",
+      "https://i.ibb.co/Qj1bLWM/promptopia-screenshot.png",
+      "https://i.ibb.co/Qj1bLWM/promptopia-screenshot.png",
     ],
-    technologies: [
-      "React",
-      "Redux",
-      "Shopify API",
-      "Tailwind CSS",
-      "Node.js",
-      "Express",
-    ],
+    technologies: ["Next.js", "MongoDB", "NextAuth", "Tailwind CSS"],
     features: [
-      "Responsive product catalog with filtering and search",
-      "User authentication and profile management",
-      "Shopping cart with persistent storage",
-      "Integration with Shopify Storefront API",
-      "Secure checkout process",
-      "Order history and tracking",
+      "User authentication with Google OAuth",
+      "Create, read, update, and delete prompts",
+      "Search functionality by content, tag, or username",
+      "User profiles with personalized prompt collections",
+      "One-click prompt copying",
+      "Responsive design for all devices",
     ],
-    liveUrl: "https://example.com/ecommerce",
-    githubUrl: "https://github.com/example/ecommerce",
+    liveUrl:
+      "https://promtopia-main-l8hyo03va-hamzaasif043s-projects.vercel.app/",
+    githubUrl: "https://github.com/HaMZAAsif043/promtopia-main",
     category: "Web Development",
   },
   {
     id: "2",
-    title: "3D Product Configurator",
+    title: "Jarvis AI Assistant",
     description:
-      "Interactive 3D product configurator using Three.js and React Three Fiber. Allows users to customize products in real-time with different colors and materials.",
+      "Python-based AI agent for personal tasks, featuring voice recognition, natural language processing, and task automation capabilities.",
     longDescription:
-      "This advanced 3D product configurator leverages Three.js and React Three Fiber to create an immersive customization experience. Users can modify product colors, materials, and components in real-time with instant visual feedback. The application includes optimized 3D model loading, custom shader materials, and a user-friendly interface.",
+      "Jarvis is a personal AI assistant built with Python that can perform various tasks through voice commands. It features speech recognition, natural language processing, and integration with multiple APIs for weather updates, web searches, and more. The assistant can open applications, play music, tell jokes, and provide information in response to user queries.",
     imageUrl:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     screenshots: [
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1633356122412-55c39fc6b6c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1591808216268-ce0b82787efe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     ],
-    technologies: [
-      "Three.js",
-      "React Three Fiber",
-      "WebGL",
-      "React",
-      "JavaScript",
-    ],
+    technologies: ["Python", "Speech Recognition", "NLP", "APIs"],
     features: [
-      "Real-time 3D model customization",
-      "Multiple material and color options",
-      "Optimized 3D model loading",
-      "Custom shader materials",
-      "Camera controls for viewing from different angles",
-      "Screenshot and sharing capabilities",
+      "Voice command recognition",
+      "Natural language understanding",
+      "Application control (open/close programs)",
+      "Web search functionality",
+      "Weather updates and forecasts",
+      "Task automation for common activities",
     ],
-    liveUrl: "https://example.com/configurator",
-    githubUrl: "https://github.com/example/configurator",
-    category: "3D Development",
+    liveUrl: "#",
+    githubUrl:
+      "https://github.com/HaMZAAsif043/jarvis_AI_Assistance_usingPython",
+    category: "AI/ML",
   },
   {
     id: "3",
-    title: "AI Content Generator",
+    title: "Recipe Finder",
     description:
-      "A content generation tool powered by AI that creates blog posts, social media content, and marketing copy based on user prompts.",
+      "React application for finding recipes using external API integration. Features search functionality, recipe details, and favorites saving.",
     longDescription:
-      "This AI-powered content generation platform uses advanced natural language processing models to create high-quality written content from simple user prompts. The system can generate blog posts, social media updates, marketing copy, and more, with controls for tone, style, and length. Built with a Python backend and React frontend.",
+      "Recipe Finder is a React application that helps users discover new recipes based on ingredients, cuisine types, or dietary preferences. The app integrates with a recipe API to fetch detailed cooking instructions, ingredient lists, and nutritional information. Users can save their favorite recipes, create shopping lists, and share recipes with friends.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    ],
+    technologies: ["React", "REST API", "CSS", "JavaScript"],
+    features: [
+      "Recipe search by ingredients or keywords",
+      "Detailed recipe instructions and ingredient lists",
+      "Nutritional information display",
+      "Save favorite recipes",
+      "Filter by dietary restrictions",
+      "Responsive design for mobile and desktop",
+    ],
+    liveUrl: "https://hamzaasif043.github.io/Recipe_Finder/",
+    githubUrl: "https://github.com/HaMZAAsif043/Recipe_Finder",
+    category: "Web Development",
+  },
+  {
+    id: "4",
+    title: "Contact List App",
+    description:
+      "Full-stack CRUD application for managing contacts, built with React frontend and Python backend. Features contact creation, editing, and deletion.",
+    longDescription:
+      "This Contact List application provides a complete contact management system with a React frontend and Python backend. Users can create, view, update, and delete contacts with details such as name, email, phone number, and address. The app includes search and filter functionality, contact categorization, and data persistence.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    ],
+    technologies: ["React", "Python", "REST API", "CRUD"],
+    features: [
+      "Create, read, update, and delete contacts",
+      "Search and filter functionality",
+      "Contact categorization",
+      "Form validation",
+      "Responsive design",
+      "Data persistence",
+    ],
+    liveUrl: "#",
+    githubUrl: "https://github.com/HaMZAAsif043/Contact-List-CRUD-APP-",
+    category: "Web Development",
+  },
+  {
+    id: "5",
+    title: "3D Car Configurator",
+    description:
+      "Interactive Toyota Corolla 3D configurator with color customization, animated doors and hood, and 360° viewing angle.",
+    longDescription:
+      "This interactive car configurator allows users to customize a Toyota Corolla model with different colors and view it from any angle. The application features real-time color changes, animated doors and hood that can be opened and closed with a click, and intuitive camera controls for a complete 360° viewing experience.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    ],
+    technologies: [
+      "React",
+      "Canvas API",
+      "JavaScript",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+    features: [
+      "Interactive 3D car visualization",
+      "Real-time color customization",
+      "Multiple color presets",
+      "Animated doors and hood",
+      "360° viewing angle",
+      "Zoom and rotation controls",
+    ],
+    liveUrl: "https://car-configurator-demo.vercel.app",
+    githubUrl: "https://github.com/HaMZAAsif043/car-configurator",
+    category: "3D Development",
+  },
+  {
+    id: "6",
+    title: "AI Chatbot Integration",
+    description:
+      "Intelligent conversational interface with natural language processing capabilities for customer support and information retrieval.",
+    longDescription:
+      "This AI-powered chatbot uses advanced natural language processing to understand user queries and provide relevant responses. The system can handle customer support inquiries, provide product information, and assist with common tasks, all while maintaining context throughout the conversation.",
     imageUrl:
       "https://images.unsplash.com/photo-1677442135968-6db3b0025e95?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     screenshots: [
@@ -112,118 +187,18 @@ const defaultProjects: Project[] = [
       "https://images.unsplash.com/photo-1673187648775-950fb7698b29?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       "https://images.unsplash.com/photo-1664575599736-c5197c684128?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI", "NLP"],
+    technologies: ["Python", "TensorFlow", "React", "NLP", "Flask"],
     features: [
-      "AI-powered content generation",
-      "Multiple content types (blog, social, marketing)",
-      "Tone and style customization",
-      "Content length controls",
-      "Export to various formats",
-      "Content history and favorites",
+      "Natural language understanding",
+      "Context-aware conversations",
+      "Multi-language support",
+      "Integration with knowledge base",
+      "Sentiment analysis",
+      "Conversation history",
     ],
-    liveUrl: "https://example.com/ai-generator",
-    githubUrl: "https://github.com/example/ai-generator",
+    liveUrl: "https://ai-chatbot-demo.vercel.app",
+    githubUrl: "https://github.com/HaMZAAsif043/ai-chatbot",
     category: "AI/ML",
-  },
-  {
-    id: "4",
-    title: "Portfolio CMS",
-    description:
-      "A headless CMS specifically designed for developer portfolios, with custom fields for projects, skills, and experience.",
-    longDescription:
-      "This specialized headless CMS is built specifically for developers to showcase their portfolios. It features custom content types for projects, skills, work experience, and education. The system uses Next.js for the frontend, Supabase for the backend, and includes a custom admin interface for content management.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1591522810850-58128c5fb089?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    ],
-    technologies: [
-      "Next.js",
-      "Supabase",
-      "Tailwind CSS",
-      "TypeScript",
-      "PostgreSQL",
-    ],
-    features: [
-      "Custom content types for developer portfolios",
-      "Admin dashboard for content management",
-      "Markdown support for rich content",
-      "Image optimization and management",
-      "SEO optimization tools",
-      "Theme customization options",
-    ],
-    liveUrl: "https://example.com/portfolio-cms",
-    githubUrl: "https://github.com/example/portfolio-cms",
-    category: "Web Development",
-  },
-  {
-    id: "5",
-    title: "Virtual Reality Gallery",
-    description:
-      "A VR art gallery experience built with A-Frame and WebXR, allowing users to explore 3D artwork in virtual reality.",
-    longDescription:
-      "This immersive virtual reality art gallery provides a platform for artists to showcase their work in a 3D environment. Built with A-Frame and WebXR, it offers a fully navigable virtual space with support for both VR headsets and desktop browsing. Features include interactive exhibits, spatial audio, and customizable gallery spaces.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1626379953822-baec19c3accd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1626379953822-baec19c3accd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1638188498798-70b6e6ace8a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    ],
-    technologies: [
-      "A-Frame",
-      "WebXR",
-      "Three.js",
-      "JavaScript",
-      "Spatial Audio",
-    ],
-    features: [
-      "Immersive VR art gallery experience",
-      "Support for VR headsets and desktop browsing",
-      "Interactive 3D artwork exhibits",
-      "Spatial audio environment",
-      "Customizable gallery spaces",
-      "Artist information and artwork details",
-    ],
-    liveUrl: "https://example.com/vr-gallery",
-    githubUrl: "https://github.com/example/vr-gallery",
-    category: "3D Development",
-  },
-  {
-    id: "6",
-    title: "Real-time Dashboard",
-    description:
-      "A real-time analytics dashboard for monitoring system performance, user activity, and business metrics.",
-    longDescription:
-      "This comprehensive real-time dashboard provides instant visibility into system performance, user activity, and key business metrics. Built with React for the frontend and Socket.io for real-time updates, it features customizable widgets, interactive data visualizations using D3.js, and exportable reports.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    ],
-    technologies: [
-      "React",
-      "Socket.io",
-      "D3.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-    ],
-    features: [
-      "Real-time data updates via WebSockets",
-      "Interactive data visualizations",
-      "Customizable dashboard widgets",
-      "User activity monitoring",
-      "System performance metrics",
-      "Exportable reports and analytics",
-    ],
-    liveUrl: "https://example.com/dashboard",
-    githubUrl: "https://github.com/example/dashboard",
-    category: "Web Development",
   },
 ];
 

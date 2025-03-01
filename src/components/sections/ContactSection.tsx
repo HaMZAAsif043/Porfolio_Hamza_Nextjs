@@ -22,13 +22,13 @@ interface ContactSectionProps {
 const ContactSection = ({
   title = "Get In Touch",
   subtitle = "Have a project in mind or want to discuss a collaboration? I'd love to hear from you!",
-  email = "hello@example.com",
-  phone = "+1 (555) 123-4567",
-  location = "San Francisco, CA",
+  email = "hamzaasif043@gmail.com",
+  phone = "+92 300 1234567",
+  location = "Lahore, Pakistan",
   socialLinks = [
-    { name: "LinkedIn", url: "https://linkedin.com/in/example" },
-    { name: "GitHub", url: "https://github.com/example" },
-    { name: "Twitter", url: "https://twitter.com/example" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/hamzaasif043" },
+    { name: "GitHub", url: "https://github.com/HaMZAAsif043" },
+    { name: "Twitter", url: "https://twitter.com/hamzaasif043" },
   ],
 }: ContactSectionProps) => {
   return (

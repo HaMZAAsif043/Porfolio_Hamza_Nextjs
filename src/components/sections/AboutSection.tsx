@@ -20,12 +20,12 @@ interface AboutSectionProps {
 }
 
 const AboutSection = ({
-  bio = "I'm a passionate developer specializing in React, Next.js, and 3D web technologies. With 8 months of experience in React and Next.js, and 1 year in Three.js and Python, I focus on creating immersive user experiences that combine cutting-edge frontend technologies with AI integration. I've been working at Blenspark since September 2023, initially as an intern for one month and now as a developer. I've developed 3D configurators, travel websites, and integrated chatbots. Currently, I'm pursuing a BS in AI at the University of Management and Technology, Lahore, in my 6th semester.",
+  bio = "I'm Hamza Asif, a passionate developer specializing in React, Next.js, and 3D web technologies. With 8 months of experience in React and Next.js, and 1 year in Three.js and Python, I focus on creating immersive user experiences that combine cutting-edge frontend technologies with AI integration. I've been working at Blenspark since September 2023, initially as an intern for one month and now as a developer. I've developed 3D configurators, travel websites, and integrated chatbots. Currently, I'm pursuing a BS in AI at the University of Management and Technology, Lahore, in my 6th semester.",
   resumeUrl = "/resume.pdf",
   socialLinks = {
-    github: "https://github.com/example",
-    linkedin: "https://linkedin.com/in/example",
-    email: "contact@example.com",
+    github: "https://github.com/HaMZAAsif043",
+    linkedin: "https://linkedin.com/in/hamzaasif043",
+    email: "hamzaasif043@gmail.com",
   },
   skills = [
     "React",

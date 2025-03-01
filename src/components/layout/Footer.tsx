@@ -39,7 +39,7 @@ const Footer = ({
               <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl">
                 D
               </div>
-              <span className="text-xl font-bold">DevPortfolio</span>
+              <span className="text-xl font-bold">DevCraft</span>
             </motion.div>
             <p className="text-muted-foreground text-sm">
               Crafting immersive digital experiences with React, Three.js, and
@@ -140,7 +140,7 @@ const Footer = ({
         <Separator className="my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Developer Portfolio. All rights reserved.</p>
+          <p>&copy; {currentYear} DevCraft. All rights reserved.</p>
           <div className="flex items-center mt-4 md:mt-0">
             <a
               href="/privacy"
