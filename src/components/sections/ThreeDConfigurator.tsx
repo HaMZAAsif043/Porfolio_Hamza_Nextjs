@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Info, Box, Palette, Layers, Download } from "lucide-react";
 
-import SimpleConfigurator from "../3d/SimpleConfigurator";
+import SimpleThreeDConfigurator from "../3d/SimpleThreeDConfigurator";
 import { Minimize2, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -35,55 +35,53 @@ const ThreeDConfiguratorSection = ({
   models = [
     {
       id: "model1",
-      name: "Basic Shape Model",
+      name: "Toyota Corolla Configurator",
       description:
-        "A configurable 3D model with customizable parts and colors. Perfect for demonstrating the capabilities of the 3D configurator.",
-      modelPath: "/models/basic-shape.glb",
+        "An interactive 3D car configurator that allows you to customize the Toyota Corolla with different colors and open/close doors and hood.",
+      modelPath: "/ccl3-transformed.glb",
       presets: [
         {
           id: "preset1",
-          name: "Classic",
-          colors: { body: "#1e88e5", top: "#e53935", bottom: "#43a047" },
-          description:
-            "The classic color scheme with blue body, red top, and green base.",
+          name: "Classic Red",
+          colors: { body: "#e53935", top: "#e53935", bottom: "#e53935" },
+          description: "A classic red color scheme for a sporty look.",
         },
         {
           id: "preset2",
-          name: "Monochrome",
-          colors: { body: "#212121", top: "#616161", bottom: "#9e9e9e" },
-          description: "A sleek monochrome design with varying shades of gray.",
+          name: "Midnight Blue",
+          colors: { body: "#1a237e", top: "#1a237e", bottom: "#1a237e" },
+          description: "A deep blue color scheme for an elegant appearance.",
         },
         {
           id: "preset3",
-          name: "Vibrant",
-          colors: { body: "#6200ea", top: "#00c853", bottom: "#ffd600" },
-          description:
-            "Bold and vibrant colors that make your model stand out.",
+          name: "Silver",
+          colors: { body: "#9e9e9e", top: "#9e9e9e", bottom: "#9e9e9e" },
+          description: "A sleek silver color scheme for a modern look.",
         },
       ],
       parts: [
         {
           id: "body",
-          name: "Body",
-          description: "The main body of the model.",
+          name: "Car Body",
+          description: "The main body of the car.",
         },
         {
-          id: "top",
-          name: "Top",
-          description: "The top section or head of the model.",
+          id: "doors",
+          name: "Doors",
+          description: "Click on the doors to open and close them.",
         },
         {
-          id: "bottom",
-          name: "Base",
-          description: "The base or bottom section of the model.",
+          id: "hood",
+          name: "Hood",
+          description: "Click on the hood to open and close it.",
         },
       ],
       features: [
-        "Interactive 3D visualization",
+        "Interactive 3D car visualization",
         "Real-time color customization",
-        "Multiple configurable parts",
-        "Preset color schemes",
-        "Export and sharing capabilities",
+        "Animated doors and hood",
+        "Multiple color presets",
+        "360° viewing angle",
       ],
       downloadUrl: "#",
     },
@@ -240,7 +238,7 @@ const ThreeDConfiguratorSection = ({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           <div className="lg:col-span-3">
             <div className="relative rounded-lg overflow-hidden border border-border">
-              <SimpleConfigurator
+              <SimpleThreeDConfigurator
                 modelPath={activeModel.modelPath}
                 presets={activeModel.presets}
                 parts={activeModel.parts}

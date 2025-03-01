@@ -1,12 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import {
-  OrbitControls,
-  useGLTF,
-  Environment,
-  ContactShadows,
-} from "@react-three/drei";
-import { Corolla } from "./Corolla";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
@@ -45,104 +37,8 @@ import {
   Share2,
 } from "lucide-react";
 
-// Model component that handles the 3D model rendering and configuration
-function Model({
-  modelPath,
-  position = [0, 0, 0],
-  scale = 1,
-  rotation = [0, 0, 0],
-  colors,
-  setColors,
-  selectedPart,
-  setSelectedPart,
-}) {
-  const group = useRef();
-  const { camera } = useThree();
-  const [carRef, setCarRef] = useState(null);
-
-  // Set initial camera position
-  useEffect(() => {
-    camera.position.set(0, 0, 5);
-    camera.lookAt(0, 0, 0);
-  }, [camera]);
-
-  // Animate the model
-  useFrame((state) => {
-    if (group.current) {
-      // Gentle floating animation
-      group.current.position.y =
-        Math.sin(state.clock.getElapsedTime() * 0.5) * 0.05;
-    }
-  });
-
-  // Update car material colors when colors state changes
-  useEffect(() => {
-    if (carRef) {
-      // Find the material to update based on the selected part
-      if (selectedPart === "body" && carRef.material) {
-        carRef.material.color.set(colors.body || "#1e88e5");
-      }
-    }
-  }, [colors, selectedPart, carRef]);
-
-  return (
-    <group
-      ref={group}
-      position={position}
-      rotation={rotation}
-      scale={[scale, scale, scale]}
-    >
-      <Corolla CCl3Ref={setCarRef} />
-    </group>
-  );
-}
-
-// Scene component that sets up the 3D environment
-function Scene({
-  modelPath,
-  colors,
-  setColors,
-  selectedPart,
-  setSelectedPart,
-}) {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <spotLight
-        position={[10, 10, 10]}
-        angle={0.15}
-        penumbra={1}
-        intensity={1}
-        castShadow
-      />
-      <Model
-        modelPath={modelPath}
-        colors={colors}
-        setColors={setColors}
-        selectedPart={selectedPart}
-        setSelectedPart={setSelectedPart}
-      />
-      <ContactShadows
-        position={[0, -1.5, 0]}
-        opacity={0.4}
-        scale={10}
-        blur={1.5}
-        far={1.5}
-      />
-      <Environment preset="city" />
-      <OrbitControls
-        enablePan={true}
-        enableZoom={true}
-        enableRotate={true}
-        minDistance={2}
-        maxDistance={10}
-      />
-    </>
-  );
-}
-
 // Main configurator component
-interface ThreeDConfiguratorProps {
+interface SimpleThreeDConfiguratorProps {
   modelPath?: string;
   presets?: {
     id: string;
@@ -159,7 +55,7 @@ interface ThreeDConfiguratorProps {
   onToggleFullScreen?: () => void;
 }
 
-const ThreeDConfigurator = ({
+const SimpleThreeDConfigurator = ({
   modelPath = "/models/default-model.glb", // Default model path
   presets = [
     {
@@ -201,15 +97,18 @@ const ThreeDConfigurator = ({
   ],
   isFullScreen = false,
   onToggleFullScreen = () => {},
-}: ThreeDConfiguratorProps) => {
+}: SimpleThreeDConfiguratorProps) => {
   const [colors, setColors] = useState(presets[0].colors);
   const [selectedPart, setSelectedPart] = useState(parts[0].id);
   const [currentColor, setCurrentColor] = useState(
     colors[selectedPart] || "#ffffff",
   );
   const [activePreset, setActivePreset] = useState(presets[0].id);
-  const [cameraPosition, setCameraPosition] = useState({ x: 0, y: 0, z: 5 });
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [rotation, setRotation] = useState({ x: 0, y: 0, z: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [isRotating, setIsRotating] = useState(true);
 
   // Update current color when selected part changes
   useEffect(() => {
@@ -217,7 +116,7 @@ const ThreeDConfigurator = ({
   }, [selectedPart, colors]);
 
   // Apply color to the selected part
-  const handleColorChange = (color) => {
+  const handleColorChange = (color: string) => {
     setCurrentColor(color);
     setColors({
       ...colors,
@@ -226,12 +125,138 @@ const ThreeDConfigurator = ({
   };
 
   // Apply preset colors
-  const applyPreset = (presetId) => {
+  const applyPreset = (presetId: string) => {
     const preset = presets.find((p) => p.id === presetId);
     if (preset) {
       setColors(preset.colors);
       setActivePreset(presetId);
     }
+  };
+
+  // Draw a simple 3D-like visualization
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#1a1a2e";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw a simple car representation
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    // Draw car body (main rectangle)
+    ctx.save();
+    ctx.translate(centerX, centerY);
+    ctx.rotate((rotation.y * Math.PI) / 180);
+
+    // Car body
+    ctx.beginPath();
+    ctx.fillStyle = colors.body || "#e53935";
+    ctx.fillRect(-80 * zoom, -30 * zoom, 160 * zoom, 60 * zoom);
+    ctx.strokeStyle = "#ffffff20";
+    ctx.strokeRect(-80 * zoom, -30 * zoom, 160 * zoom, 60 * zoom);
+
+    // Car roof
+    ctx.beginPath();
+    ctx.fillStyle = colors.top || "#e53935";
+    ctx.fillRect(-60 * zoom, -60 * zoom, 120 * zoom, 30 * zoom);
+    ctx.strokeStyle = "#ffffff20";
+    ctx.strokeRect(-60 * zoom, -60 * zoom, 120 * zoom, 30 * zoom);
+
+    // Car wheels
+    ctx.beginPath();
+    ctx.fillStyle = colors.bottom || "#212121";
+    ctx.arc(-50 * zoom, 30 * zoom, 20 * zoom, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.fillStyle = colors.bottom || "#212121";
+    ctx.arc(50 * zoom, 30 * zoom, 20 * zoom, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Car windows
+    ctx.beginPath();
+    ctx.fillStyle = "#84ffff80";
+    ctx.fillRect(-55 * zoom, -55 * zoom, 40 * zoom, 25 * zoom);
+    ctx.strokeStyle = "#ffffff20";
+    ctx.strokeRect(-55 * zoom, -55 * zoom, 40 * zoom, 25 * zoom);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#84ffff80";
+    ctx.fillRect(15 * zoom, -55 * zoom, 40 * zoom, 25 * zoom);
+    ctx.strokeStyle = "#ffffff20";
+    ctx.strokeRect(15 * zoom, -55 * zoom, 40 * zoom, 25 * zoom);
+
+    ctx.restore();
+
+    // Add text
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "14px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("Toyota Corolla Configurator", centerX, canvas.height - 40);
+    ctx.fillText(
+      `Rotation: ${rotation.y.toFixed(0)}° | Zoom: ${zoom.toFixed(1)}x`,
+      centerX,
+      canvas.height - 20,
+    );
+  }, [colors, rotation, zoom]);
+
+  // Handle canvas resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (canvasRef.current && canvasRef.current.parentElement) {
+        canvasRef.current.width = canvasRef.current.parentElement.clientWidth;
+        canvasRef.current.height = canvasRef.current.parentElement.clientHeight;
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isFullScreen]);
+
+  // Animation loop for rotation
+  useEffect(() => {
+    let animationId: number;
+    const animate = () => {
+      if (isRotating) {
+        setRotation((prev) => ({
+          ...prev,
+          y: (prev.y + 0.5) % 360,
+        }));
+      }
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, [isRotating]);
+
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(prev + 0.1, 2));
+  };
+
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(prev - 0.1, 0.5));
+  };
+
+  const handleResetRotation = () => {
+    setRotation({ x: 0, y: 0, z: 0 });
+  };
+
+  const handleToggleRotation = () => {
+    setIsRotating((prev) => !prev);
   };
 
   // Get the current selected part info
@@ -243,33 +268,31 @@ const ThreeDConfigurator = ({
       className={`w-full ${isFullScreen ? "fixed inset-0 z-50" : "relative h-[600px]"}`}
     >
       <div className="w-full h-full flex flex-col md:flex-row">
-        {/* 3D Canvas */}
+        {/* Canvas instead of 3D */}
         <div className="flex-grow relative bg-black/10 dark:bg-black/30 rounded-lg overflow-hidden">
-          <Canvas
-            shadows
-            dpr={[1, 2]}
-            camera={{ position: [0, 0, 5], fov: 50 }}
-          >
-            <Scene
-              modelPath={modelPath}
-              colors={colors}
-              setColors={setColors}
-              selectedPart={selectedPart}
-              setSelectedPart={setSelectedPart}
-            />
-          </Canvas>
+          <canvas
+            ref={canvasRef}
+            className="w-full h-full cursor-pointer"
+            onClick={() => {}}
+          />
 
           {/* Camera controls overlay */}
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 bg-black/30 backdrop-blur-sm p-2 rounded-lg">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={() => {}}>
-                    <RotateCcw className="h-5 w-5 text-white" />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={handleToggleRotation}
+                  >
+                    <RotateCcw
+                      className={`h-5 w-5 text-white ${isRotating ? "text-primary" : "text-muted-foreground"}`}
+                    />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Reset View</p>
+                  <p>{isRotating ? "Stop" : "Start"} Rotation</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -277,7 +300,7 @@ const ThreeDConfigurator = ({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={() => {}}>
+                  <Button variant="ghost" size="icon" onClick={handleZoomOut}>
                     <ZoomOut className="h-5 w-5 text-white" />
                   </Button>
                 </TooltipTrigger>
@@ -287,10 +310,20 @@ const ThreeDConfigurator = ({
               </Tooltip>
             </TooltipProvider>
 
+            <div className="w-32">
+              <Slider
+                value={[zoom * 50]}
+                min={25}
+                max={100}
+                step={1}
+                onValueChange={(value) => setZoom(value[0] / 50)}
+              />
+            </div>
+
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={() => {}}>
+                  <Button variant="ghost" size="icon" onClick={handleZoomIn}>
                     <ZoomIn className="h-5 w-5 text-white" />
                   </Button>
                 </TooltipTrigger>
@@ -303,12 +336,31 @@ const ThreeDConfigurator = ({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={() => {}}>
-                    <Camera className="h-5 w-5 text-white" />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={handleResetRotation}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-white"
+                    >
+                      <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+                      <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9" />
+                      <path d="M12 3v6" />
+                    </svg>
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Take Screenshot</p>
+                  <p>Reset View</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -337,7 +389,7 @@ const ThreeDConfigurator = ({
 
           {/* Part selection indicator */}
           <div className="absolute top-4 left-4 bg-black/30 backdrop-blur-sm p-2 rounded-lg text-white text-sm">
-            <p>Click on a part to select it for customization</p>
+            <p>Selected: {selectedPartInfo.name}</p>
           </div>
         </div>
 
@@ -464,4 +516,4 @@ const ThreeDConfigurator = ({
   );
 };
 
-export default ThreeDConfigurator;
+export default SimpleThreeDConfigurator;

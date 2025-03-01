@@ -77,40 +77,31 @@ interface ExperienceTimelineProps {
 const ExperienceTimeline = ({
   items = [
     {
-      date: "Jan 2022 - Present",
-      title: "Senior Frontend Developer",
-      organization: "Tech Innovations Inc.",
+      date: "Sep 2023 - Present",
+      title: "React & 3D Developer",
+      organization: "Blenspark",
       description:
-        "Leading development of interactive 3D web applications using React, Three.js, and WebGL. Implemented performant rendering techniques for complex 3D models.",
-      skills: ["React", "Three.js", "WebGL", "TypeScript", "Redux"],
+        "Developing interactive 3D configurators and web applications using React, Three.js, and WebGL. Implemented 3D model customization and animation features.",
+      skills: ["React", "Next.js", "Three.js", "WebGL", "TypeScript"],
       type: "work",
     },
     {
-      date: "Jun 2020 - Dec 2021",
-      title: "Frontend Developer",
-      organization: "Digital Solutions Ltd.",
+      date: "Sep 2023 - Oct 2023",
+      title: "Frontend Developer Intern",
+      organization: "Blenspark",
       description:
-        "Developed responsive web applications and e-commerce platforms using React and Redux. Integrated with Shopify Storefront API for product management.",
-      skills: ["React", "Redux", "Shopify API", "JavaScript", "CSS"],
+        "Worked on developing responsive web applications and travel websites. Integrated chatbots and interactive features for enhanced user experience.",
+      skills: ["React", "JavaScript", "CSS", "HTML", "UI/UX"],
       type: "work",
     },
     {
-      date: "Sep 2018 - May 2020",
-      title: "MSc Computer Science",
-      organization: "University of Technology",
+      date: "2021 - Present",
+      title: "BS in Artificial Intelligence",
+      organization: "University of Management and Technology, Lahore",
       description:
-        'Specialized in Computer Graphics and AI. Thesis on "Real-time 3D Rendering Techniques for Web Applications".',
-      skills: ["Computer Graphics", "AI/ML", "Research", "Python"],
+        "Currently in 6th semester, focusing on AI, machine learning, and computer vision applications.",
+      skills: ["Python", "AI/ML", "Computer Vision", "Data Science"],
       type: "education",
-    },
-    {
-      date: "Mar 2019",
-      title: "Best Web Innovation Award",
-      organization: "Tech Conference 2019",
-      description:
-        "Received award for developing an interactive 3D visualization tool for educational purposes.",
-      skills: ["Innovation", "Web Development", "3D Graphics"],
-      type: "achievement",
     },
   ],
 }: ExperienceTimelineProps) => {

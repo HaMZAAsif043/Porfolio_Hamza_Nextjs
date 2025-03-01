@@ -20,7 +20,7 @@ interface HeroSectionProps {
 const HeroSection = ({
   name = "Hamza Asif",
   title = "React & 3D Developer",
-  description = "I build interactive web experiences with React, Three.js, and modern web technologies. Specializing in 3D rendering, AI integration, and full-stack development.",
+  description = "I build interactive web experiences with React, Three.js, and modern web technologies. Specializing in 3D model configuration, AI integration, and full-stack development.",
   socialLinks = {
     github: "https://github.com/HaMZAAsif043",
     linkedin: "https://linkedin.com/in/johndoe",
