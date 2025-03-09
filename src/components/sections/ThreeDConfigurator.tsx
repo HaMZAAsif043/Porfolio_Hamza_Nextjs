@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Info, Box, Palette, Layers, Download } from "lucide-react";
-
 import SimpleThreeDConfigurator from "../3d/SimpleThreeDConfigurator";
 import { Minimize2, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";

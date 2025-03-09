@@ -31,7 +31,7 @@ const ProjectGrid = ({
       title: "Promptopia",
       description:
         "Full-stack Next.js application for sharing AI prompts with the community. Features user authentication, CRUD operations, and search functionality.",
-      imageUrl: "https://i.ibb.co/Qj1bLWM/promptopia-screenshot.png",
+      imageUrl: "/promptopia.png",
       technologies: ["Next.js", "MongoDB", "NextAuth", "Tailwind CSS"],
       liveUrl:
         "https://promtopia-main-l8hyo03va-hamzaasif043s-projects.vercel.app/",
@@ -117,7 +117,7 @@ const ProjectGrid = ({
           .toLowerCase()
           .includes(localSearchQuery.toLowerCase()) ||
         project.technologies.some((tech) =>
-          tech.toLowerCase().includes(localSearchQuery.toLowerCase()),
+          tech.toLowerCase().includes(localSearchQuery.toLowerCase())
         )
       : true;
 

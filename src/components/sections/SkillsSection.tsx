@@ -46,25 +46,25 @@ const SkillsSection = ({ id = "skills" }: SkillsSectionProps) => {
                 id: "frontend",
                 name: "Frontend",
                 icon: <Code className="h-5 w-5" />,
-                count: 12,
+                count: 5,
               },
               {
                 id: "backend",
                 name: "Backend",
                 icon: <Server className="h-5 w-5" />,
-                count: 8,
+                count: 2,
               },
               {
                 id: "ai",
                 name: "AI/ML",
                 icon: <Brain className="h-5 w-5" />,
-                count: 6,
+                count: 2,
               },
               {
                 id: "3d",
                 name: "3D Rendering",
                 icon: <Box className="h-5 w-5" />,
-                count: 5,
+                count: 3,
               },
             ]}
           />

@@ -96,9 +96,9 @@ const Home = () => {
         </section>
 
         {/* 3D Configurator Section */}
-        <section id="showcase">
+        {/* <section id="showcase">
           <ThreeDConfiguratorSection />
-        </section>
+        </section> */}
 
         {/* Projects Section */}
         <section id="projects">

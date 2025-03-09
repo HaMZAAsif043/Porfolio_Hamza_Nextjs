@@ -25,7 +25,7 @@ const SkillsCategories = ({
       id: "frontend",
       name: "Frontend",
       icon: <Code className="h-5 w-5" />,
-      count: 5,
+      count: 40,
     },
     {
       id: "backend",
