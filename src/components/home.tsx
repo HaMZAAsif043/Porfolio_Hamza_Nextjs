@@ -7,7 +7,6 @@ import Footer from "./layout/Footer";
 
 // Section components
 import HeroSection from "./sections/HeroSection";
-import ThreeDConfiguratorSection from "./sections/ThreeDConfigurator";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
 import AboutSection from "./sections/AboutSection";
