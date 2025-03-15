@@ -182,7 +182,7 @@ const Navbar = ({
                 </Tooltip>
               </TooltipProvider>
 
-              <TooltipProvider>
+              {/* <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="ghost" size="icon" asChild>
@@ -200,7 +200,7 @@ const Navbar = ({
                     <p>Portfolio</p>
                   </TooltipContent>
                 </Tooltip>
-              </TooltipProvider>
+              </TooltipProvider> */}
             </div>
 
             {/* Theme Toggle */}

@@ -58,12 +58,6 @@ const Footer = ({
                 Home
               </a>
               <a
-                href="#showcase"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                3D Showcase
-              </a>
-              <a
                 href="#projects"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -157,7 +151,7 @@ const Footer = ({
             </a>
             <Separator orientation="vertical" className="mx-2 h-4" />
             <a
-              href="https://github.com/yourusername/portfolio"
+              href="https://github.com/HaMZAAsif043/Porfolio_Hamza_Nextjs"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center hover:text-foreground transition-colors"
