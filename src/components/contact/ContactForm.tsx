@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 import { Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -9,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-// Form validation schema
+// Validation Schema
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -29,41 +29,36 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-interface ContactFormProps {
-  onSubmit?: (values: FormValues) => Promise<void>;
-  isSubmitting?: boolean;
-  isSuccess?: boolean;
-}
-
-const ContactForm = ({
-  onSubmit = async () => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    return Promise.resolve();
-  },
-  isSubmitting = false,
-  isSuccess = false,
-}: ContactFormProps) => {
-  const [submitting, setSubmitting] = React.useState(isSubmitting);
-  const [success, setSuccess] = React.useState(isSuccess);
+const ContactForm = () => {
+  const [submitting, setSubmitting] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", message: "" },
   });
 
   const handleSubmit = async (values: FormValues) => {
     try {
       setSubmitting(true);
-      await onSubmit(values);
+
+      const templateParams = {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      };
+
+      await emailjs.send(
+        "service_triahlm", // Replace with your Service ID
+        "template_g7cjdgj", // Replace with your Template ID
+        templateParams,
+        "vmCwQtqSgbg0I0udI" // Replace with your Public Key
+      );
+
       setSuccess(true);
       form.reset();
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error sending email:", error);
     } finally {
       setSubmitting(false);
     }
@@ -78,20 +73,7 @@ const ContactForm = ({
           className="text-center py-8"
         >
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg
-              className="w-8 h-8 text-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <Send className="w-8 h-8 text-primary" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
           <p className="text-muted-foreground mb-4">
@@ -151,9 +133,6 @@ const ContactForm = ({
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>
-                    Please provide details about your project or inquiry.
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

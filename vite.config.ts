@@ -3,19 +3,16 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { tempo } from "tempo-devtools/dist/vite";
 
-const conditionalPlugins: [string, Record<string, any>][] = [];
+const conditionalPlugins = [];
 
 // @ts-ignore
 if (process.env.TEMPO === "true") {
   conditionalPlugins.push(["tempo-devtools/swc", {}]);
 }
 
-// https://vitejs.dev/config/
+// 🚀 Explicitly set the base for GitHub Pages
 export default defineConfig({
-  base:
-    process.env.NODE_ENV === "development"
-      ? "/"
-      : process.env.VITE_BASE_PATH || "/",
+  base: "/Porfolio_Hamza_Nextjs/", // 👈 Set this to your repository name!
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
@@ -32,21 +29,18 @@ export default defineConfig({
     },
   },
   server: {
-    // @ts-ignore
-    allowedHosts: true,
+    allowedHosts: "all",
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor'; // Create a separate chunk for vendor files
+          if (id.includes("node_modules")) {
+            return "vendor";
           }
         },
       },
-      chunkSizeWarningLimit: 1000, // Increase chunk size limit to 1MB (if needed)
+      chunkSizeWarningLimit: 1000,
     },
   },
 });
-
-
